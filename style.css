@@ -155,10 +155,11 @@ a:hover {
 
 .tasksBlock {
     background-color: white;
-    
-    max-height: 400px;
+    max-height: 800px;
     overflow: auto;
 }
+
+
 
 input[type=text], textarea{
     width: 100%;
@@ -169,7 +170,7 @@ input[type=text], textarea{
     color: gray;
 }
 
-input[type=submit] {
+#submit {
     margin-bottom: 10px;
     width: 25%;
     
@@ -204,7 +205,6 @@ input[type=reset] {
 input[type=reset]:hover {
     background-color: #45a049;
 }
-
 
 #description {
     height: 150px;
@@ -262,7 +262,7 @@ input[type=reset]:hover {
 
 #taskForm {
     background-color: white;
-    max-height: 400px;
+    max-height: 600px;
     overflow: auto;
     clear: both;
 }

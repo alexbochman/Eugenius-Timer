@@ -96,7 +96,6 @@
 
                         <div id="taskForm" class="collapse col-xs-12">
                             <form>
-
                                 <div class="col-xs-12">
                                     <label for="title">Title</label><br>
                                     <input type="text" id="title" name="title" value="New Task Title"><br>
@@ -106,14 +105,13 @@
                                     <label for="description">Description</label><br>
                                     <textarea type="text" id="description" name="description" rows="5">Optionally provide a meaningful description.</textarea><br>
 
-                                    <label for="subTasks">SubTasks</label>
-                                    <button type="button" onclick="addSubField('subTasks')">Add Sub Task</button>
-                                    <ul id="subTasks">
-                                    </ul>
+                                    <label for="subTasks">Sub Tasks</label>
+                                    <button type="button" onclick="addSubField('subTasks')">New Sub Task</button>
+                                    <ul id="subTasks"></ul>
                                 </div>
                                 
                                 <div class="col-xs-12">
-                                    <input type="button" value="submit" id="submit" onClick="completeTaskCreation(this)">
+                                    <input type="button" value="Submit" id="submit" onClick="completeTaskCreation(this)">
                                     <input type="reset">
                                 </div>
 
