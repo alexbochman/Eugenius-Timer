@@ -147,7 +147,7 @@ a:hover {
 
 /* OVERVIEW ================================================================= */
 
-#overview {
+#todoTasks {
     display: block;
 }
 
@@ -168,6 +168,7 @@ input[type=text], textarea{
     border: 1px solid #ccc;
     border-radius: 4px;
     color: gray;
+    
 }
 
 #submit {

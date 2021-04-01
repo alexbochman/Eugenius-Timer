@@ -19,15 +19,17 @@ function addSubField(id){
     
     newEl.innerHTML =   "<div class='col-xs-6'>" +
                             "<label for='subName" + subFieldNum + "'>Sub Task Name</label>" +
-                            "<input type='text' id='subName" + subFieldNum + "'>" + 
+                            "<input type='text' id='subName" + subFieldNum + "'" +
+                            "value='Sub Task Name'>" +
                         "</div>" +
 
                         "<div class='col-xs-6'>" +
                             "<label for='subDesc" + subFieldNum + "'>Sub Task Description</label>" +
-                            "<input type='text' id='subDesc"+ subFieldNum + "'>" +
+                            "<input type='text' id='subDesc"+ subFieldNum + "'" +
+                            "value='Sub Task Description'>" +
                         "</div>" +
 
-                        "<button onclick='removeSubField(this)' class='col-xs-12' style='margin-bottom: 10px'>remove</button>";
+                        "<button onclick='removeSubField(this)' class='col-xs-12 btn-danger' style='margin-bottom: 10px; margin-top: -20px;'>Remove Sub Task</button>";
                         
     
     newEl.style.border = "1px solid #ccc";

@@ -68,14 +68,13 @@
                 <div class="header">Eugenius Timer</div>
                 <div class="info">
 
+                    <!--
+                    =================================================
+                    TASKS TO-DO / CREATE NEW TASKS SECTION
+                    =================================================
+                    -->
+                    
                     <div class="myHide" id="todoTasks">
-
-                        <!--
-                        =================================================
-                        TASKS TO-DO / CREATE NEW TASKS SECTION
-                        =================================================
-                        -->
-
                         <h2 class="text-center padding">Tasks To-Do</h2>
 
                         <!--
@@ -104,14 +103,16 @@
                                 <div class="col-xs-12">
                                     <label for="description">Description</label><br>
                                     <textarea type="text" id="description" name="description" rows="5">Optionally provide a meaningful description.</textarea><br>
-
+                                </div>
+                                
+                                <div class="col-xs-12">
                                     <label for="subTasks">Sub Tasks</label>
                                     <button type="button" onclick="addSubField('subTasks')">New Sub Task</button>
                                     <ul id="subTasks"></ul>
                                 </div>
                                 
                                 <div class="col-xs-12">
-                                    <input type="button" value="Submit" id="submit" onClick="completeTaskCreation(this)">
+                                    <input type="button" value="Submit" id="submit" onClick="completeTaskCreation(this.parentElement.parentElement)">
                                     <input type="reset">
                                 </div>
 
