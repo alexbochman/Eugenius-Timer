@@ -16,12 +16,22 @@ function addSubField(id){
     var test = document.getElementById(id);
     var newEl = document.createElement("div");
     newEl.setAttribute("class", "col-xs-12");
-    newEl.innerHTML = "<label for='subName" + subFieldNum + "'>Sub Task Name</label>" +
-                      "<input type='text' id='subName" + subFieldNum + "'>" + 
-                      "<label for='subDesc" + subFieldNum + "'>Sub Task Description</label>" +
-                      "<input type='text' id='subDesc"+ subFieldNum + "'>" + 
-                      "<button onclick='removeSubField(this)' class='col-xs-12' style='margin-bottom: 10px'>remove</button>";
-    newEl.style.border = "solid black 2px";
+    
+    newEl.innerHTML =   "<div class='col-xs-6'>" +
+                            "<label for='subName" + subFieldNum + "'>Sub Task Name</label>" +
+                            "<input type='text' id='subName" + subFieldNum + "'>" + 
+                        "</div>" +
+
+                        "<div class='col-xs-6'>" +
+                            "<label for='subDesc" + subFieldNum + "'>Sub Task Description</label>" +
+                            "<input type='text' id='subDesc"+ subFieldNum + "'>" +
+                        "</div>" +
+
+                        "<button onclick='removeSubField(this)' class='col-xs-12' style='margin-bottom: 10px'>remove</button>";
+                        
+    
+    newEl.style.border = "1px solid #ccc";
+    newEl.style.borderRadius = "4px";
     //newEl.style.marginBottom
     test.append(newEl);
     subFieldNum++;
