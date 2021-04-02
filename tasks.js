@@ -73,6 +73,7 @@ function completeTaskCreation(submit) {
 //the buttons need to be setup after the fact because the onclick needs to be changed, it's a pain but needs to be done this way
 function createTask(name, desc, subTasksString) {
   var newEl = document.createElement("div");
+  newEl.setAttribute("tasklistsize", taskListSize);
   newEl.setAttribute("class", "task");
   newEl.innerHTML =
     "<div class='topRow col-xs-12'>" +
@@ -110,34 +111,38 @@ function moveToComplete(objectToMove) {
   document.getElementById("completedList").append(objectToMove);
   objectToMove.children[0].children[1].innerHTML =
     "<button type='button' class='btn-success' onclick='moveToUncomplete(this.parentElement.parentElement.parentElement)'>Uncomplete</button>" +
-    "<button type='button' class='btn-danger' onclick='deleteTask(this.parentElement.parentElement.parentElement, \"completedList\")'>Delete</button>";
+    "<button type='button' class='btn-danger' onclick='deleteTask(this.parentElement.parentElement.parentElement)'>Delete</button>";
 }
 
 function moveToUncomplete(objectToMove) {
   document.getElementById("taskList").append(objectToMove);
   objectToMove.children[0].children[1].innerHTML =
     "<button type='button' class='btn-success' onclick='moveToComplete(this.parentElement.parentElement.parentElement)'>Complete</button>" +
-    "<button type='button' class='btn-danger' onclick='deleteTask(this.parentElement.parentElement.parentElement, \"taskList\")'>Delete</button>";
+    "<button type='button' class='btn-danger' onclick='deleteTask(this.parentElement.parentElement.parentElement)'>Delete</button>";
 }
 
-function deleteTask(objectToDelete, listid) {
-  var list = document.getElementById(listid);
+function deleteTask(objectToDelete) {
+  var tasks = document.getElementById("taskList");
+  var complete = document.getElementById("completedList");
   var newList = [];
   var found = false;
-  var i;
-  for (i = 0; i < taskList.length; i++) {
-    if (list.children[i] === objectToDelete) {
+  var index = -1;
+  for (i = 0; i < taskList.length || !found; i++) {
+    if (tasks.children[i] === objectToDelete || complete.children[i] === objectToDelete) {
       found = true;
+      index = parseInt(objectToDelete.getAttribute("tasklistsize"));
       objectToDelete.remove();
-    } else {
-      newList.push(taskList[i]);
     }
   }
 
   //console.log("newlist.length = " + newList.length);
 
-  if (!found) console.log("error: the task you selected wasn't found");
-
+  if(!found) 
+    console.log("error: the task you selected wasn't found");
+  else 
+    for(var i = 0; i < taskList.length; i++)
+      if(i != index)
+        newList.push(taskList[i]);
   taskList = newList;
-  console.log("taskList.length = " + taskList.length);
+  console.log(taskList);
 }
