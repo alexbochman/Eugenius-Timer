@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <title>Eugenius Timer Project Page</title>
 
@@ -43,7 +43,7 @@
                             Completed Tasks
                         </a>
                     </li>
-                    
+
                     <li class="tab"
                         id="optionsLI"
                         onclick="showhide('options'); activeTab('optionsLI');">
@@ -73,7 +73,7 @@
                     TASKS TO-DO / CREATE NEW TASKS SECTION
                     =================================================
                     -->
-                    
+
                     <div class="myHide" id="todoTasks">
                         <h2 class="text-center padding">Tasks To-Do</h2>
 
@@ -106,13 +106,13 @@
                                     <!--Are you sure having a default description is a good thing? we might want to change this.-->
                                     <textarea type="text" id="description" name="description" rows="5">Optionally provide a meaningful description.</textarea><br>
                                 </div>
-                                
+
                                 <div class="col-xs-12">
                                     <label for="subTasks">Sub Tasks</label>
                                     <button type="button" onclick="addSubField('subTasks')">New Sub Task</button>
                                     <ul id="subTasks"></ul>
                                 </div>
-                                
+
                                 <div class="col-xs-12">
                                     <input type="button" value="Submit" id="submit" onClick="completeTaskCreation(this.parentElement.parentElement)">
                                     <input type="reset">
@@ -120,9 +120,9 @@
 
                             </form>
                         </div>
-                       
+
                         <div class="spacing"></div>
-                    
+
                         <!-- TASK LIST SECTION -->
                         <button type="button"
                                 class="btn btn-info col-xs-12"
@@ -167,7 +167,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!--
                     =================================================
                     OPTIONS SECTION
@@ -177,7 +177,7 @@
                     <div class="myHide" id="options">
                         <h2 class="text-center padding">Options</h2>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
