@@ -1,16 +1,8 @@
 taskList = [];
-taskCompleted = [];
+taskListSize = taskList.length;
 
 //total number of subFields created, including deleted ones
 subFieldNum = 0;
-
-// window.onload = function init(){
-//     if(localStorage["taskListSize"] != null && localStorage["taskListSize"] > 0){
-//         console.log(localStorage["taskListSize"]);
-//         recreateList();
-//     }
-// }
-
 
 function addSubField(id){
     var test = document.getElementById(id);
@@ -34,7 +26,6 @@ function addSubField(id){
     
     newEl.style.border = "1px solid #ccc";
     newEl.style.borderRadius = "4px";
-    //newEl.style.marginBottom
     test.append(newEl);
     subFieldNum++;
 }
@@ -44,87 +35,83 @@ function removeSubField(elementToRemove){
     parent.remove();
 }
 
-//this would be what is run on clicking submit, I have no idea how submit is created though.
-//for right now, all I can do is include work with the implementation that we have.
 function completeTaskCreation(submit){
-    console.log(submit);
-    // var name = document.getElementById("taskName");
-    // var desc = document.getElementById("taskDescription");
-    // var subTasks = [];
-    // var subOpts = document.getElementById("subOptList").children;
-    // for(var i = 0; i < subOpts.length; i++){
-    //     subTasks.push(subOpts[i].children[0].value);
-    // }
-    // var object = {name:name.value, desc:desc.value, subs:subTasks};
-    // taskList.push(object);
+    var childElements = submit.children;
+    var name = childElements[0].children[2].value;
+    var desc = childElements[1].children[2].value;
+    var subTaskObjects = [];
+    var subTasks = childElements[2].children[2].children;
+    var subTasksString = "";
+    for(var i = 0; i < subTasks.length; i++){
+        subTaskObjects.push({name:subTasks[i].children[0].children[1].value, desc:subTasks[i].children[1].children[1].value});
+        subTasksString += "<div><p class='col-xs-4'>" + subTaskObjects[i].name + "</p><p class='col-xs-8'>" + subTaskObjects[i].desc + "</p></div>";
+    }
+    var newTask = createTask(name, desc, subTasksString);
+    moveToUncomplete(newTask);
     
+    //now that the task is completed and set in the right place we need to empty the form.
+    submit.children[0].children[2].value = "New Task Title";
+    submit.children[1].children[2].innerHTML = "Optionally provide a meaningful description.";
+    subFieldNum = 0;
+    submit.children[2].children[2].innerHTML = "";
+
+    taskListSize++;
+    taskList.push({title:name, desc:desc, subTasks:subTaskObjects});
     // localStorage.setItem("taskList", JSON.stringify(taskList));
     // localStorage.setItem("taskListSize", taskList.length);
-    // var tasks = document.getElementById("newTasks");
-    // var newEl = document.createElement("div");
     
-    // var subTaskView = "";
-    // for(var i = 0; i < subOpts.length; i++){
-    //     subTaskView += "<br>" + subOpts[i].children[0].value;
-    // }
-    
-    // if(subOpts.length > 0){
-    //     newEl.innerHTML = "<p>name: " + name.value + "<br>description: " + desc.value + "<br>Subtasks:" + subTaskView;
-    //     newEl.innerHTML += "<br><button onclick='deleteTask(this)'>Delete Task</button><br>";
-    // } else {
-    //     newEl.innerHTML = "<p>name: " + name.value + "<br>description: " + desc.value;
-    //     newEl.innerHTML += "<br><button onclick='deleteTask(this)'>Delete Task</button><br>";
-    // }
-    
-    
-    
-    // tasks.append(newEl);
-    
-    // name.value = "";
-    // desc.value = "";
-    // document.getElementById("subOptList").innerHTML = "";
 }
 
-function recreateList(){
-    var tasks = document.getElementById("newTasks");
-    taskList = JSON.parse(localStorage["taskList"]);
-    for(var i = 0; i < taskList.length; i++){
-        newEl = document.createElement("div");
-        
-        var subTaskView = "<br>Subtasks:";
-        for(var j = 0; j < taskList[i].subs.length; j++){
-            subTaskView += "<br>" + taskList[i].subs[j];
-        }
-        if(taskList[i].subs.length > 0){
-            newEl.innerHTML = "name: " + taskList[i].name + "<br>description: " + taskList[i].desc + subTaskView;
-            newEl.innerHTML += "<br><button onclick='deleteTask(this)'>Delete Task</button><br>";
-        } else {
-            newEl.innerHTML = "name: " + taskList[i].name + "<br>description: " + taskList[i].desc;
-            newEl.innerHTML += "<br><button onclick='deleteTask(this)'>Delete Task</button><br>";
-        }
-        
-        tasks.append(newEl);
-    }
+//the buttons need to be setup after the fact because the onclick needs to be changed, it's a pain but needs to be done this way
+function createTask(name, desc, subTasksString){
+    var newEl = document.createElement("div");
+    newEl.setAttribute("class", "task");
+    newEl.innerHTML =   "<div class='topRow col-xs-12'>" +
+                            "<button type='button' "+
+                                    "class='btn btn-info' " +
+                                    "data-toggle='collapse' " +
+                                    "data-target='#task" + taskListSize + "' onClick=rotateChevron('task" + taskListSize + "Chevron')>" +
+                                "<h4 class='taskTitle'>" + name + " &nbsp<span><i class='fas fa-chevron-right' id='task" + taskListSize + "Chevron'></i></span></h4>" +
+                            "</button>" +
+                            "<div class='taskOptions'>" +
+                            "</div>" +
+                        "</div>" +
+                        "<div id='task" + taskListSize + "' class='collapse col-xs-12'>" +
+                            "<p>" + desc + "</p>" +
+                            "<ul>" + 
+                                subTasksString + 
+                            "</ul>" +
+                        "</div>";
+    return newEl;
 }
 
-function deleteTask(taskToDelete){
-    var list = document.getElementById("newTasks");
-    var parent = taskToDelete.parentElement;
+function moveToComplete(objectToMove){
+    document.getElementById("completedList").append(objectToMove);
+    objectToMove.children[0].children[1].innerHTML = "<button type='button' class='btn-success' onclick='moveToUncomplete(this.parentElement.parentElement.parentElement)'>Uncomplete</button>" +
+                                                     "<button type='button' class='btn-danger' onclick='deleteTask(this.parentElement.parentElement.parentElement, \"completedList\")'>Delete</button>";
+}
+
+function moveToUncomplete(objectToMove){
+    document.getElementById("taskList").append(objectToMove);
+    objectToMove.children[0].children[1].innerHTML = "<button type='button' class='btn-success' onclick='moveToComplete(this.parentElement.parentElement.parentElement)'>Complete</button>" +
+                                                     "<button type='button' class='btn-danger' onclick='deleteTask(this.parentElement.parentElement.parentElement, \"taskList\")'>Delete</button>";
+}
+
+function deleteTask(objectToDelete, listid){
+    var list = document.getElementById(listid);
     var newList = [];
     var notFound = true;
     var i;
     for(i = 0; i < taskList.length; i++){
-        if(list.children[i] === parent){
+        if(list.children[i] === objectToDelete){
             notFound = false;
-            parent.remove();
+            objectToDelete.remove();
         } else {
             newList.push(taskList[i]);
+            console.log(newList.length);
         }
     }
-    if(notFound){
-        console.log("the task selected wasn't found");
-    }
-    localStorage.setItem("taskList", JSON.stringify(newList));
-    localStorage.setItem("taskListSize", newList.length);
+    if(notFound)
+        console.log("error: the task you selected wasn't found");
+    taskList = newList;
 }
-

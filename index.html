@@ -97,11 +97,13 @@
                             <form>
                                 <div class="col-xs-12">
                                     <label for="title">Title</label><br>
+                                    <!--Are you sure having a default description is a good thing? we might want to change this.-->
                                     <input type="text" id="title" name="title" value="New Task Title"><br>
                                 </div>
 
                                 <div class="col-xs-12">
                                     <label for="description">Description</label><br>
+                                    <!--Are you sure having a default description is a good thing? we might want to change this.-->
                                     <textarea type="text" id="description" name="description" rows="5">Optionally provide a meaningful description.</textarea><br>
                                 </div>
                                 
@@ -135,69 +137,6 @@
 
                         <div class="tasksBlock col-xs-12 taskList" >
                             <div id="taskList" class="collapse classWithPad">
-
-                                <!-- DEMO TASK 1 -->
-                                <div class="task">
-                                    <div class="topRow col-xs-12">
-                                        <button type="button"
-                                                class="btn btn-info"
-                                                data-toggle="collapse"
-                                                data-target="#demo1" onclick="rotateChevron('demo1Chevron')">
-
-                                            <h4 class="taskTitle">DEMO TASK 1 &nbsp; <span><i class="fas fa-chevron-right" id="demo1Chevron"></i></span></h4>
-                                        </button>
-
-                                        <div class="taskOptions">
-                                            <button type="button" class="btn-success">Complete</button>
-
-                                            <button type="button" class="btn-danger">Delete</button>
-                                        </div>
-                                    </div>
-
-                                    <div id="demo1" class="collapse col-xs-12">
-                                        <p class="indent">
-                                            Full Release.
-                                        </p>
-                                        <ul class="indent">
-                                            <li class="releasePoints">Collapsible Pomodoro button toggles the visibility of the status bar items on VS Code.</li>
-                                            <li class="releasePoints">Completed task list implemented. Tasks can be added, removed, and viewed. Removed tasks are considered completed, and can be viewed in the completed tasks menu.</li>
-                                            <li class="releasePoints">Options button and menu has been added. The menu includes the ability to change the timer durations for short breaks, long breaks, and the working timer.</li>
-                                        </ul>
-                                    </div>
-                                    
-                                </div>
-                                
-                                <div class="floatClear"></div>
-                                
-                                <!-- DEMO TASK 2 -->
-                                <div class="task">
-                                    <div class="topRow col-xs-12">
-                                    <button type="button"
-                                            class="btn btn-info"
-                                            data-toggle="collapse"
-                                            data-target="#demo2" onclick="rotateChevron('demo2Chevron')">
-
-                                        <h4 class="taskTitle">DEMO TASK 2 &nbsp; <span><i class="fas fa-chevron-right" id="demo2Chevron"></i></span></h4>
-                                    </button>
-                                    
-                                    <div class="taskOptions">
-                                        <button type="button" class="btn-success">Complete</button>
-
-                                        <button type="button" class="btn-danger">Delete</button>
-                                    </div>
-                                    </div>
-
-                                    <div id="demo2" class="collapse">
-                                        <p class="indent">
-                                            Full Release.
-                                        </p>
-                                        <ul class="indent">
-                                            <li class="releasePoints">Collapsible Pomodoro button toggles the visibility of the status bar items on VS Code.</li>
-                                            <li class="releasePoints">Completed task list implemented. Tasks can be added, removed, and viewed. Removed tasks are considered completed, and can be viewed in the completed tasks menu.</li>
-                                            <li class="releasePoints">Options button and menu has been added. The menu includes the ability to change the timer durations for short breaks, long breaks, and the working timer.</li>
-                                        </ul>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -225,50 +164,6 @@
 
                         <div class="tasksBlock col-xs-12">
                             <div id="completedList" class="collapse classWithPad">
-
-                                <!-- DEMO TASK 1 -->
-                                <div class="task">
-                                    <button type="button"
-                                            class="btn btn-info"
-                                            data-toggle="collapse"
-                                            data-target="#completed1" onclick="rotateChevron('completed1Chevron')">
-
-                                        <h4 class="taskTitle">DEMO COMPLETED TASK 1 &nbsp; <span><i class="fas fa-chevron-right" id="completed1Chevron"></i></span></h4>
-                                    </button>
-
-                                    <div id="completed1" class="collapse">
-                                        <p class="indent">
-                                            Full Release.
-                                        </p>
-                                        <ul class="indent">
-                                            <li class="releasePoints">Collapsible Pomodoro button toggles the visibility of the status bar items on VS Code.</li>
-                                            <li class="releasePoints">Completed task list implemented. Tasks can be added, removed, and viewed. Removed tasks are considered completed, and can be viewed in the completed tasks menu.</li>
-                                            <li class="releasePoints">Options button and menu has been added. The menu includes the ability to change the timer durations for short breaks, long breaks, and the working timer.</li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                <!-- DEMO TASK 2 -->
-                                <div class="task">
-                                    <button type="button"
-                                            class="btn btn-info"
-                                            data-toggle="collapse"
-                                            data-target="#completed2" onclick="rotateChevron('completed2Chevron')">
-
-                                        <h4 class="taskTitle">DEMO COMPLETED TASK 2 &nbsp; <span><i class="fas fa-chevron-right" id="completed2Chevron"></i></span></h4>
-                                    </button>
-
-                                    <div id="completed2" class="collapse">
-                                        <p class="indent">
-                                            Full Release.
-                                        </p>
-                                        <ul class="indent">
-                                            <li class="releasePoints">Collapsible Pomodoro button toggles the visibility of the status bar items on VS Code.</li>
-                                            <li class="releasePoints">Completed task list implemented. Tasks can be added, removed, and viewed. Removed tasks are considered completed, and can be viewed in the completed tasks menu.</li>
-                                            <li class="releasePoints">Options button and menu has been added. The menu includes the ability to change the timer durations for short breaks, long breaks, and the working timer.</li>
-                                        </ul>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
