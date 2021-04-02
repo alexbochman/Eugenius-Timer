@@ -11,23 +11,16 @@ function addSubField(id) {
 
   newEl.innerHTML =
     "<div class='col-xs-6'>" +
-    "<label for='subName" +
-    subFieldNum +
-    "'>Sub Task Name</label>" +
-    "<input type='text' id='subName" +
-    subFieldNum +
-    "'" +
-    "value='Sub Task Name'>" +
+      "<label for='subName" + subFieldNum + "'>Sub Task Name</label>" +
+      "<input type='text' id='subName" + subFieldNum + "'" + "value='Sub Task Name'>" +
     "</div>" +
+
     "<div class='col-xs-6'>" +
-    "<label for='subDesc" +
-    subFieldNum +
-    "'>Sub Task Description</label>" +
-    "<input type='text' id='subDesc" +
-    subFieldNum +
-    "'" +
-    "value='Sub Task Description'>" +
+      "<label for='subDesc" + subFieldNum + "'>Sub Task Description</label>" +
+      "<input type='text' id='subDesc" + subFieldNum + "'" +
+      "value='Sub Task Description'>" +
     "</div>" +
+
     "<button onclick='removeSubField(this)' class='col-xs-12 btn-danger' style='margin-bottom: 10px; margin-top: -20px;'>Remove Sub Task</button>";
 
   newEl.style.border = "1px solid #ccc";
@@ -53,13 +46,14 @@ function completeTaskCreation(submit) {
       name: subTasks[i].children[0].children[1].value,
       desc: subTasks[i].children[1].children[1].value,
     });
+
     subTasksString +=
-      "<div><p class='col-xs-4'>" +
-      subTaskObjects[i].name +
-      "</p><p class='col-xs-8'>" +
-      subTaskObjects[i].desc +
-      "</p></div>";
+      "<div>" +
+        "<p class='col-xs-4'>" + subTaskObjects[i].name +"</p>" +
+        "<p class='col-xs-8'>" + subTaskObjects[i].desc + "</p>" +
+      "</div>";
   }
+
   var newTask = createTask(name, desc, subTasksString);
   moveToUncomplete(newTask);
 
@@ -82,32 +76,32 @@ function createTask(name, desc, subTasksString) {
   newEl.setAttribute("class", "task");
   newEl.innerHTML =
     "<div class='topRow col-xs-12'>" +
-    "<button type='button' " +
-    "class='btn btn-info' " +
-    "data-toggle='collapse' " +
-    "data-target='#task" +
-    taskListSize +
-    "' onClick=rotateChevron('task" +
-    taskListSize +
-    "Chevron')>" +
-    "<h4 class='taskTitle'>" +
-    name +
-    " &nbsp<span><i class='fas fa-chevron-right' id='task" +
-    taskListSize +
-    "Chevron'></i></span></h4>" +
-    "</button>" +
-    "<div class='taskOptions'>" +
+      "<button type='button' " +
+      "class='btn btn-info' " +
+      "data-toggle='collapse' " +
+      "data-target='#task" +
+      taskListSize +
+      "' onClick=rotateChevron('task" +
+      taskListSize +
+      "Chevron')>" +
+      "<h4 class='taskTitle'>" +
+      name +
+      " &nbsp<span><i class='fas fa-chevron-right' id='task" +
+      taskListSize +
+      "Chevron'></i></span></h4>" +
+      "</button>" +
+      "<div class='taskOptions'> </div>" +
     "</div>" +
-    "</div>" +
+
     "<div id='task" +
-    taskListSize +
-    "' class='collapse col-xs-12'>" +
-    "<p>" +
-    desc +
-    "</p>" +
-    "<ul>" +
-    subTasksString +
-    "</ul>" +
+      taskListSize +
+      "' class='collapse col-xs-12'>" +
+      "<p>" +
+      desc +
+      "</p>" +
+      "<ul>" +
+      subTasksString +
+      "</ul>" +
     "</div>";
   return newEl;
 }
@@ -143,7 +137,7 @@ function deleteTask(objectToDelete, listid) {
   //console.log("newlist.length = " + newList.length);
 
   if (!found) console.log("error: the task you selected wasn't found");
-  taskList = newList;
 
+  taskList = newList;
   console.log("taskList.length = " + taskList.length);
 }
