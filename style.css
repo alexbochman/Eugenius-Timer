@@ -1,5 +1,5 @@
 
-/* NOTES ================================================================= 
+/* NOTES =================================================================
 
 Website theme color: #34527d
 Website theme alt color: #44628d
@@ -111,7 +111,7 @@ Light gray web page font color: #717171
     transition: 0.3s;
     cursor: pointer;
 
-}    
+}
 
 .wrapper .sidenav ul li a{
     color: #bdb8d7;
@@ -168,13 +168,13 @@ input[type=text], textarea{
     border: 1px solid #ccc;
     border-radius: 4px;
     color: gray;
-    
+
 }
 
 #submit {
     margin-bottom: 10px;
     width: 25%;
-    
+
     background-color: #4CAF50;
     color: white;
     padding: 8px 16px;
@@ -267,7 +267,7 @@ input[type=reset]:hover {
 }
 
 .task {
-    border-bottom: 1px solid #e0e4e8; 
+    border-bottom: 1px solid #e0e4e8;
     margin-bottom: 0px !important;
     clear: both;
     overflow: hidden !important;
