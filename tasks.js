@@ -10,20 +10,20 @@ function addSubField(id) {
   newEl.setAttribute("class", "col-xs-12");
 
   newEl.innerHTML =
-    "<div class='col-xs-6'>" +
+    "<div class='col-xs-5'>" +
       "<label for='subName" + subFieldNum + "'>Sub Task Name</label>" +
       "<input type='text' id='subName" + subFieldNum + "'" + "value='Sub Task Name'>" +
     "</div>" +
 
-    "<div class='col-xs-6'>" +
+    "<div class='col-xs-5'>" +
       "<label for='subDesc" + subFieldNum + "'>Sub Task Description</label>" +
       "<input type='text' id='subDesc" + subFieldNum + "'" +
       "value='Sub Task Description'>" +
     "</div>" +
+    "<i class='fas fa-trash-alt fa-3x col-xs-1 text-danger' onclick='removeSubField(this)'></i>";
+    //"<button onclick='removeSubField(this)' class='col-xs-12 btn-danger' style='margin-bottom: 10px; margin-top: -20px;'>Remove Sub Task</button>";
 
-    "<button onclick='removeSubField(this)' class='col-xs-12 btn-danger' style='margin-bottom: 10px; margin-top: -20px;'>Remove Sub Task</button>";
-
-  newEl.style.border = "1px solid #ccc";
+  newEl.style.borderBottom = "1px solid #ccc";
   newEl.style.borderRadius = "4px";
   test.append(newEl);
   subFieldNum++;
@@ -137,9 +137,9 @@ function deleteTask(objectToDelete) {
 
   //console.log("newlist.length = " + newList.length);
 
-  if(!found) 
+  if(!found)
     console.log("error: the task you selected wasn't found");
-  else 
+  else
     for(var i = 0; i < taskList.length; i++)
       if(i != index)
         newList.push(taskList[i]);
