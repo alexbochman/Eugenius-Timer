@@ -51,7 +51,7 @@ function completeTaskCreation(submit) {
       "<div>" +
         "<p class='col-xs-4'>" + subTaskObjects[i].name +"</p>" +
         "<p class='col-xs-8'>" + subTaskObjects[i].desc + "</p>" +
-      "</div>";
+      "</div> <br><br>";
   }
 
   var newTask = createTask(name, desc, subTasksString);
