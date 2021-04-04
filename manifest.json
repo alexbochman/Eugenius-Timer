@@ -1,0 +1,23 @@
+{
+    "manifest_version": 3,
+    "name": "Eugenius Timer",
+    "version": "0.1",
+    "description": "GUI II project at the University of Massachusetts Lowell. A Google Chrome extension for time and task managment.",
+    "icons": {
+        "16": "./files/GooeyGuys.png",
+        "32": "./files/GooeyGuys.png",
+        "48": "./files/GooeyGuys.png",
+        "128": "./files/GooeyGuys.png"
+    },
+    "options_page": "index.html",
+    "content_scripts": [
+        {
+            "matches": ["file:///index*"],
+            "css": ["style.css"],
+            "js": ["tasks.js", "UI.js"]
+        }
+    ],
+    "permissions": [
+
+    ]
+}
