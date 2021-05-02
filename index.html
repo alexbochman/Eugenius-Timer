@@ -203,12 +203,11 @@
                         <div class="center">
                             <label>Sound Notification</label>
                             <label class="switch">
-                                <input onchange="toggleSwitch()" type="checkbox" checked>
+                                <input onchange="toggleSwitch()" type="checkbox" id="soundToggle" checked>
                                 <span class="slider round"></span>
                             </label>
-
                         </div>
-
+                        
                         <div class="header col-xs-12 col-md-6" style="border-right: solid 2px" id="workTimerUpdate">
                             <div>Update Work Timer</div><br>
                             <div class="col-xs-12 col-md-6">
@@ -233,6 +232,11 @@
                                 <input type="number" id="breakSec" min="1" class="col-xs-12" onchange="this.style.background = 'white';">
                             </div>
                             <button class="timerbtn2" onclick="setTimer('break')">Confirm</button>
+                        </div>
+                        <div class="center">
+                            <button onclick="saveToJSON()" class="btn-success col-xs-12">Save task list and options to JSON</button>
+                            <label for="loadJSON">Load Task List and Options from JSON</label>
+                            <input type="file" id="loadJSON">
                         </div>
                     </div>
                 </div>
