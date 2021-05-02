@@ -207,7 +207,7 @@
                                 <span class="slider round"></span>
                             </label>
                         </div>
-                        
+
                         <div class="header col-xs-12 col-md-6" style="border-right: solid 2px" id="workTimerUpdate">
                             <div>Update Work Timer</div><br>
                             <div class="col-xs-12 col-md-6">
@@ -233,10 +233,13 @@
                             </div>
                             <button class="timerbtn2" onclick="setTimer('break')">Confirm</button>
                         </div>
-                        <div class="center">
-                            <button onclick="saveToJSON()" class="btn-success col-xs-12">Save task list and options to JSON</button>
-                            <label for="loadJSON">Load Task List and Options from JSON</label>
-                            <input type="file" id="loadJSON">
+
+                        <div class="center2 ">
+                            <button onclick="saveToJSON()" class="storageBtn col-xs-12">Download Task List and Options to JSON</button> <br><br>
+                            <div class="col-xs-12 subDiv">
+                                <label for="loadJSON">Load Task List and Options from JSON</label>
+                                <input type="file" id="loadJSON">
+                            </div>
                         </div>
                     </div>
                 </div>
