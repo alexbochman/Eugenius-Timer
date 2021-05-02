@@ -1,5 +1,5 @@
 
-window.onload = function loadValues(){
+function loadValues(){
     loadTaskList();
     console.log(taskList);
     setupTaskList();
@@ -11,6 +11,9 @@ function saveTaskList(taskListString){
 
 function loadTaskList(){
     taskList = JSON.parse(localStorage.getItem("taskList"));
+    if(taskList == null){
+        taskList = [];
+    }
 }
 
 function setupTaskList(){

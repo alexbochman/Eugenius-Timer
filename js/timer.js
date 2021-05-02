@@ -141,6 +141,7 @@ window.onload = function init(){
     document.getElementById("resetTimerButton").addEventListener("click", clickReset);
     document.getElementById("switchBreakButton").addEventListener("click", clickPause);
     document.getElementById("skipBreakButton").addEventListener("click", clickSkip);
+    loadValues();
 }
 
 function clickStart(){
